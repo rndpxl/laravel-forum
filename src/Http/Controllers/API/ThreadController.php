@@ -49,7 +49,7 @@ class ThreadController extends BaseController
 
     public function recentDiscussions(Request $request) {
 
-        $recentDiscussions = $this->model()->withRequestScopes($request)->get();
+	    $recentDiscussions = $this->model()->withRequestScopes($request)->orderBy('created_at', 'DESC')->get();
 
         return $this->response($recentDiscussions);
     }
