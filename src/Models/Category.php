@@ -19,7 +19,7 @@ class Category extends BaseModel
 	 *
 	 * @var bool
 	 */
-    public $timestamps = false;
+    public $timestamps = true;
 
 	/**
 	 * The attributes that are mass assignable.
