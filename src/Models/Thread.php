@@ -76,6 +76,21 @@ class Thread extends BaseModel
     }
 
     /**
+     * Relationship: Posters.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function posters()
+    {
+        return $this->belongsToMany(
+            config('forum.integration.user_model'),
+            'forum_posts',
+            'thread_id',
+            'author_id'
+        )->withTimestamps()->distinct('user_id');
+    }
+
+    /**
      * Relationship: Posts.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
