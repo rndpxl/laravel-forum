@@ -87,7 +87,7 @@ class Thread extends BaseModel
             'forum_posts',
             'thread_id',
             'author_id'
-        )->withTimestamps()->select('user_id')->distinct();
+        )->withTimestamps()->groupBy('user_id');
     }
 
     /**
